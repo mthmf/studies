@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "3r2NblfaD7pPg/mp2kZWahrAvlpaElXrn/XK0TsOK6UctZPPymuH4LrELruH1OL2o+fY7kFwnciJkgvOqvnEPA==",
+  "success": true,
+  "projectFilePath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.1.0\\microsoft.aspnetcore.http.features.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.0\\microsoft.extensions.primitives.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
+    "C:\\Users\\matheus.ferreira\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
