@@ -830,11 +830,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj",
+      "projectUniqueName": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj",
       "projectName": "Alura.WebAPI.Model",
-      "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj",
+      "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj",
       "packagesPath": "C:\\Users\\matheus.ferreira\\.nuget\\packages\\",
-      "outputPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Model\\obj\\",
+      "outputPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matheus.ferreira\\AppData\\Roaming\\NuGet\\NuGet.Config",

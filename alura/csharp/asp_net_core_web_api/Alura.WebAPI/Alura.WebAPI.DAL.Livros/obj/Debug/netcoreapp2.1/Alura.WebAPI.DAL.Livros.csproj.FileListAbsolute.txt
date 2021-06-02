@@ -10,3 +10,15 @@ C:\projetos\alura\cscharp\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcore
 C:\projetos\alura\cscharp\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.csproj.CopyComplete
 C:\projetos\alura\cscharp\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.dll
 C:\projetos\alura\cscharp\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.pdb
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\bin\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.deps.json
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\bin\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.dll
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\bin\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.pdb
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\bin\Debug\netcoreapp2.1\Alura.WebAPI.Model.dll
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\bin\Debug\netcoreapp2.1\Alura.WebAPI.Model.pdb
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.csprojAssemblyReference.cache
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.AssemblyInfoInputs.cache
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.AssemblyInfo.cs
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.csproj.CoreCompileInputs.cache
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.csproj.CopyComplete
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.dll
+C:\projetos\matheus\studies\alura\csharp\asp_net_core_web_api\Alura.WebAPI\Alura.WebAPI.DAL.Livros\obj\Debug\netcoreapp2.1\Alura.WebAPI.DAL.Livros.pdb

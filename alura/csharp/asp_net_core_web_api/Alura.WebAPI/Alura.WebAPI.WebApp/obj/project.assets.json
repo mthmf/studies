@@ -12721,11 +12721,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.WebApp\\Alura.WebAPI.WebApp.csproj",
+      "projectUniqueName": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.WebApp\\Alura.WebAPI.WebApp.csproj",
       "projectName": "Alura.WebAPI.WebApp",
-      "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.WebApp\\Alura.WebAPI.WebApp.csproj",
+      "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.WebApp\\Alura.WebAPI.WebApp.csproj",
       "packagesPath": "C:\\Users\\matheus.ferreira\\.nuget\\packages\\",
-      "outputPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.WebApp\\obj\\",
+      "outputPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matheus.ferreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12742,17 +12742,17 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "projectReferences": {
-            "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.DAL.Livros\\Alura.WebAPI.DAL.Livros.csproj": {
-              "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.DAL.Livros\\Alura.WebAPI.DAL.Livros.csproj"
+            "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.DAL.Livros\\Alura.WebAPI.DAL.Livros.csproj": {
+              "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.DAL.Livros\\Alura.WebAPI.DAL.Livros.csproj"
             },
-            "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.DAL.Usuarios\\Alura.WebAPI.DAL.Usuarios.csproj": {
-              "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.DAL.Usuarios\\Alura.WebAPI.DAL.Usuarios.csproj"
+            "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.DAL.Usuarios\\Alura.WebAPI.DAL.Usuarios.csproj": {
+              "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.DAL.Usuarios\\Alura.WebAPI.DAL.Usuarios.csproj"
             },
-            "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj": {
-              "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj"
+            "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj": {
+              "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Model\\Alura.WebAPI.Model.csproj"
             },
-            "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj": {
-              "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj"
+            "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj": {
+              "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj"
             }
           }
         }

@@ -5,7 +5,9 @@ using System.Linq;
 
 namespace Alura.WebAPI.WebApp.Api
 {
-    public class LivrosController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class LivrosController : ControllerBase
     {
         private readonly IRepository<Livro> _repo;
 
@@ -14,19 +16,41 @@ namespace Alura.WebAPI.WebApp.Api
             _repo = repository;
         }
 
-        [HttpGet]
-        public IActionResult Recuperar(int id)
+        [HttpGet()]
+        public IActionResult ListaDeLivros([FromRoute] int id)
+        {
+            var lista = _repo.All.Select(l => l.ToApi()).ToList();
+            return Ok(lista);
+        }
+
+        [HttpGet("{id}/capa")]
+        public IActionResult ImagemCapa([FromRoute] int id)
+        {
+            byte[] img = _repo.All
+                .Where(l => l.Id == id)
+                .Select(l => l.ImagemCapa)
+                .FirstOrDefault();
+            if (img != null)
+            {
+                return File(img, "image/png");
+            }
+            return File("~/images/capas/capa-vazia.png", "image/png");
+        }
+
+
+        [HttpGet("{id}")]
+        public IActionResult Recuperar([FromRoute] int id)
         {
             var model = _repo.Find(id);
             if (model == null)
             {
                 return NotFound();
             }
-            return Json(model.ToModel());
+            return Ok(model.ToApi());
         }
 
         [HttpPost]
-        public IActionResult Incluir(LivroUpload model)
+        public IActionResult Incluir([FromBody] LivroUpload model)
         {
             if (ModelState.IsValid)
             {
@@ -38,9 +62,8 @@ namespace Alura.WebAPI.WebApp.Api
             return BadRequest();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Alterar(LivroUpload model)
+        [HttpPut]
+        public IActionResult Alterar([FromBody] LivroUpload model)
         {
             if (ModelState.IsValid)
             {
@@ -58,9 +81,8 @@ namespace Alura.WebAPI.WebApp.Api
             return BadRequest();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Remover(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Remover([FromRoute] int id)
         {
             var model = _repo.Find(id);
             if (model == null)
@@ -69,12 +91,6 @@ namespace Alura.WebAPI.WebApp.Api
             }
             _repo.Excluir(model);
             return NoContent();
-        }
-
-
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }

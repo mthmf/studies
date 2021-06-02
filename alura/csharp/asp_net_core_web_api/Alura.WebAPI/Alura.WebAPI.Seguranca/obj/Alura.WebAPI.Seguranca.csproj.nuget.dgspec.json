@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj": {}
+    "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj": {}
   },
   "projects": {
-    "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj": {
+    "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj",
+        "projectUniqueName": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj",
         "projectName": "Alura.WebAPI.Seguranca",
-        "projectPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj",
+        "projectPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\Alura.WebAPI.Seguranca.csproj",
         "packagesPath": "C:\\Users\\matheus.ferreira\\.nuget\\packages\\",
-        "outputPath": "C:\\projetos\\alura\\cscharp\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\obj\\",
+        "outputPath": "C:\\projetos\\matheus\\studies\\alura\\csharp\\asp_net_core_web_api\\Alura.WebAPI\\Alura.WebAPI.Seguranca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matheus.ferreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
