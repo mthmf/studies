@@ -46,7 +46,7 @@ namespace Alura.WebAPI.WebApp.Api
             {
                 return NotFound();
             }
-            return Ok(model.ToApi());
+            return Ok(model.ToModel());
         }
 
         [HttpPost]
