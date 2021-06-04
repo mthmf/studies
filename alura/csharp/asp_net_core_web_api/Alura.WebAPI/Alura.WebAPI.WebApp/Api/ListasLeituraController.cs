@@ -1,5 +1,6 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Alura.WebAPI.WebApp.Api
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ListasLeitura : ControllerBase
+    public class ListasLeituraController : ControllerBase
     {
         private readonly IRepository<Livro> _repo;
 
-        public ListasLeitura(IRepository<Livro> repo)
+        public ListasLeituraController(IRepository<Livro> repo)
         {
             _repo = repo;
         }
