@@ -47,7 +47,7 @@ namespace Alura.WebApi.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseMvc();
         }

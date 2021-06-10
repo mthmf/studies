@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Alura.WebAPI.WebApp.Formatters;
-using Microsoft.IdentityModel.Tokens;
+using Alura.WebAPI.WebApp.HttpClients;
 using System;
 
 namespace Alura.ListaLeitura.WebApp
@@ -41,6 +41,11 @@ namespace Alura.ListaLeitura.WebApp
                 options.Password.RequireLowercase = false;
             }).AddEntityFrameworkStores<AuthDbContext>();
 
+            services.AddHttpClient<LivroApiClient>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:6000/api/");
+            });
+
             services.ConfigureApplicationCookie(options => {
                 options.LoginPath = "/Usuario/Login";
             });
@@ -51,25 +56,6 @@ namespace Alura.ListaLeitura.WebApp
                 options.OutputFormatters.Add(new LivroCsvFormatter());
              })
             .AddXmlSerializerFormatters();
-
-            services.AddAuthentication((options) =>
-            {
-                options.DefaultAuthenticateScheme = "JwtBearer";
-                options.DefaultChallengeScheme = "JwtBearer";
-            }).AddJwtBearer("JwtBearer", (options) =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("alura-webapi-authentication-valid")),
-                    ClockSkew = TimeSpan.FromMinutes(5),
-                    ValidIssuer = "Alura.WebApp",
-                    ValidAudience = "Postman"
-                };
-            });
 
         }
 
