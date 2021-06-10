@@ -2,13 +2,13 @@
 using Alura.ListaLeitura.Seguranca;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Alura.WebAPI.WebApp.Formatters;
 using Alura.WebAPI.WebApp.HttpClients;
 using System;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Alura.ListaLeitura.WebApp
 {
@@ -28,13 +28,19 @@ namespace Alura.ListaLeitura.WebApp
                 options.UseSqlServer(Configuration.GetConnectionString("AuthDB"));
             });
 
-            services.AddIdentity<Usuario, IdentityRole>(options =>
+            /*services.AddIdentity<Usuario, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 3;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-            }).AddEntityFrameworkStores<AuthDbContext>();
+            }).AddEntityFrameworkStores<AuthDbContext>();*/
+
+            services.AddHttpContextAccessor();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+                options.LoginPath = "/Usuario/Login";
+            });
 
             services.AddHttpClient<LivroApiClient>(client =>
             {

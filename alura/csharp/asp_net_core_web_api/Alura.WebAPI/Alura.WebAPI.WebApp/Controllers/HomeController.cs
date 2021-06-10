@@ -30,6 +30,7 @@ namespace Alura.ListaLeitura.WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+            HttpContext.User.Claims.First(c => c.Type == "Token").
             var model = new HomeViewModel
             {
                 ParaLer = await ListaDoTipo(TipoListaLeitura.ParaLer),
