@@ -8,7 +8,7 @@ using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 
 namespace Alura.ListaLeitura.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ListasLeituraController : ControllerBase
@@ -40,7 +40,7 @@ namespace Alura.ListaLeitura.Api.Controllers
         }
 
         [HttpGet("{tipo}")]
-        public IActionResult ListaEspecifica(TipoListaLeitura tipo)
+        public IActionResult ListaEspecifica([FromQuery] TipoListaLeitura tipo)
         {
 
             var lista = CriaLista(tipo);

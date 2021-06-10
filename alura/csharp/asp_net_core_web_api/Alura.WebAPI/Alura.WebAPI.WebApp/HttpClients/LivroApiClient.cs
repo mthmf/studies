@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Lista = Alura.ListaLeitura.Modelos.ListaLeitura;
 
@@ -11,14 +12,21 @@ namespace Alura.WebAPI.WebApp.HttpClients
     public class LivroApiClient
     {
         private readonly HttpClient _httpClient;
-        public LivroApiClient(HttpClient httpClient)
+        private readonly AuthApiClient _authClient;
+
+        public LivroApiClient(HttpClient httpClient, AuthApiClient authApiClient)
         {
             _httpClient = httpClient;
+            _authClient = authApiClient;
         }
 
         public async Task<Lista> GetListaLeitura(TipoListaLeitura tipo)
         {
-            HttpResponseMessage responseMessage = await _httpClient.GetAsync($"listaleitura/{tipo}");
+            var token = await _authClient.PostLoginAsync(new ListaLeitura.Seguranca.LoginModel { Login = "admin", Password = "admin1" });
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage responseMessage = await _httpClient.GetAsync($"listasleitura/{tipo}");
             responseMessage.EnsureSuccessStatusCode();
             return await responseMessage.Content.ReadAsAsync<Lista>();
         }

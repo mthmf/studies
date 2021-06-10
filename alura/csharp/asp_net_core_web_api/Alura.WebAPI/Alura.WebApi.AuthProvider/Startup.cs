@@ -46,6 +46,7 @@ namespace Alura.WebApi.AuthProvider
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseMvc();
 
         }
