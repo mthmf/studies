@@ -1,5 +1,6 @@
 ﻿using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Alura.WebApi.Api.Modelos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Alura.ListaLeitura.Api.Controllers
     [Authorize]
     [ApiController]
     [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class LivrosController : ControllerBase
     {
@@ -20,6 +22,9 @@ namespace Alura.ListaLeitura.Api.Controllers
         }
 
         [HttpGet()]
+        [ProducesResponseType(statusCode:200, Type =typeof(LivroApi))]
+        [ProducesResponseType(statusCode: 500, Type = typeof(ErroResponse))]
+        [ProducesResponseType(statusCode: 404)]
         public IActionResult ListaDeLivros([FromRoute] int id)
         {
             var lista = _repo.All.Select(l => l.ToApi()).ToList();

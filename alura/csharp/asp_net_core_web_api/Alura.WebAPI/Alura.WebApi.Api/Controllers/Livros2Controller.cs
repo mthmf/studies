@@ -3,6 +3,7 @@ using Alura.ListaLeitura.Persistencia;
 using Alura.WebApi.Api.Modelos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace Alura.ListaLeitura.Api.Controllers
@@ -10,6 +11,7 @@ namespace Alura.ListaLeitura.Api.Controllers
     [Authorize]
     [ApiController]
     [ApiVersion("2.0")]
+    [ApiExplorerSettings(GroupName ="v2")]
     [Route("api/v{version:apiVersion}/livros")]
     public class Livros2Controller : ControllerBase
     {
@@ -72,7 +74,7 @@ namespace Alura.ListaLeitura.Api.Controllers
                 var uri = Url.Action("Recuperar", new { id = livro.Id });
                 return Created(uri, livro);
             }
-            return BadRequest();
+            return BadRequest(ErroResponse.FromModelState(ModelState));
         }
 
         [HttpPut]
