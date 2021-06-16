@@ -3,6 +3,7 @@ using Alura.ListaLeitura.Persistencia;
 using Alura.WebApi.Api.Modelos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Linq;
 
 namespace Alura.ListaLeitura.Api.Controllers
@@ -47,6 +48,13 @@ namespace Alura.ListaLeitura.Api.Controllers
 
 
         [HttpGet("{id}")]
+        [SwaggerOperation(
+            Summary = "Recupera o livro identificado por seu {id}.",
+            Tags = new[] { "Livros" }
+        )]
+        [ProducesResponseType(statusCode: 200, Type = typeof(LivroApi))]
+        [ProducesResponseType(statusCode: 500, Type = typeof(ErroResponse))]
+        [ProducesResponseType(404)]
         public IActionResult Recuperar([FromRoute] int id)
         {
             var model = _repo.Find(id);

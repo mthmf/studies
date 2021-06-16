@@ -1,20 +1,17 @@
-﻿using Alura.ListaLeitura.Api.Formatters;
-using Alura.ListaLeitura.Modelos;
-using Alura.ListaLeitura.Persistencia;
-using Alura.WebApi.Api.Filtros;
+﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Alura.ListaLeitura.Api.Formatters;
+using Alura.WebApi.Api.Filtros;
+using Alura.ListaLeitura.Modelos;
+using Alura.ListaLeitura.Persistencia;
+using Microsoft.OpenApi.Models;
 
 namespace Alura.WebApi.Api
 {
@@ -71,13 +68,16 @@ namespace Alura.WebApi.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.DocumentFilter<TagDescriptionDocumentFilter>();
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
+                    Title = "Livro API",
                     Description = "Documentacao da API",
                     Version = "1.0"
                 });
-                c.SwaggerDoc("v2", new Info
+                c.SwaggerDoc("v2", new OpenApiInfo
                 {
+                    Title = "Livro API",
                     Description = "Documentacao da API- 2.0",
                     Version = "2.0"
                 });
@@ -98,8 +98,10 @@ namespace Alura.WebApi.Api
             app.UseMvc();
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"));
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v2/swagger.json", "v2"));
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
+            });
 
         }
     }
