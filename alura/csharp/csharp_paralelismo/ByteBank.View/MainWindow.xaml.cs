@@ -35,6 +35,12 @@ namespace ByteBank.View
         private void BtnProcessar_Click(object sender, RoutedEventArgs e)
         {
             var contas = r_Repositorio.GetContaClientes();
+            var contasThreadQuantidade = contas.Count() / 4;
+            var contasParte1 = contas.Take(contasThreadQuantidade);
+            var contasParte2 = contas.Skip(contasThreadQuantidade).Take(contasThreadQuantidade);
+            var contasParte3 = contas.Skip(contasThreadQuantidade*2).Take(contasThreadQuantidade);
+            var contasParte4 = contas.Skip(contasThreadQuantidade * 3).Take(contasThreadQuantidade);
+
 
             var resultado = new List<string>();
 
@@ -42,10 +48,53 @@ namespace ByteBank.View
 
             var inicio = DateTime.Now;
 
-            foreach (var conta in contas)
+            Thread pt1 = new Thread(() =>
             {
-                var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
-                resultado.Add(resultadoConta);
+                foreach (var conta in contasParte1)
+                {
+                    var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoConta);
+                }
+            });
+
+            Thread pt2 = new Thread(() =>
+            {
+                foreach (var conta in contasParte2)
+                {
+                    var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoConta);
+                }
+            });
+
+
+            Thread pt3 = new Thread(() =>
+            {
+                foreach (var conta in contasParte3)
+                {
+                    var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoConta);
+                }
+            });
+
+            Thread pt4 = new Thread(() =>
+            {
+                foreach (var conta in contasParte4)
+                {
+                    var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
+                    resultado.Add(resultadoConta);
+                }
+            });
+
+
+            pt1.Start();
+            pt2.Start();
+            pt3.Start();
+            pt4.Start();
+
+
+            while (pt1.IsAlive || pt2.IsAlive || pt3.IsAlive || pt4.IsAlive)
+            {
+                Thread.Sleep(250);
             }
 
             var fim = DateTime.Now;
