@@ -1,6 +1,7 @@
 ﻿using ByteBank.Core.Model;
 using ByteBank.Core.Repository;
 using ByteBank.Core.Service;
+using ByteBank.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,44 +33,50 @@ namespace ByteBank.View
             r_Servico = new ContaClienteService();
         }
 
-        private void BtnProcessar_Click(object sender, RoutedEventArgs e)
+        private async void BtnProcessar_Click(object sender, RoutedEventArgs e)
         {
-            var taskSchedulerUI =  TaskScheduler.FromCurrentSynchronizationContext();
             BtnProcessar.IsEnabled = false;
             var contas = r_Repositorio.GetContaClientes();
 
-            var resultado = new List<string>();
-
-            AtualizarView(new List<string>(), TimeSpan.Zero);
-
+            PgsProgresso.Maximum = contas.Count();
+            LimparView();
             var inicio = DateTime.Now;
 
-            var contasTarefas = contas.Select(conta =>
-            {
-                return Task.Factory.StartNew(() =>
-                {
-                    var resultadoConta = r_Servico.ConsolidarMovimentacao(conta);
-                    resultado.Add(resultadoConta);
-                });
-            }).ToArray();
+            var progress = new ByteBankProgress<string>(str => PgsProgresso.Value++);
+            var resultado = await ConsolidarContas(contas, progress);
+            var fim = DateTime.Now;
+          
+            BtnProcessar.IsEnabled = false;
+            AtualizarView(resultado, fim - inicio);
 
-            Task.WhenAll(contasTarefas)
-                .ContinueWith(task =>
-            {
-                var fim = DateTime.Now;
-                AtualizarView(resultado, fim - inicio);
-            }, taskSchedulerUI).ContinueWith(task => { BtnProcessar.IsEnabled = false; }, taskSchedulerUI);
-
-         
         }
 
-        private void AtualizarView(List<String> result, TimeSpan elapsedTime)
+        private async Task<string[]> ConsolidarContas(IEnumerable<ContaCliente> contas, IProgress<string> progresso)
+        {
+            var tasks = contas.Select(conta => Task.Factory.StartNew(() => {                
+                var resultadoConsolidacao = r_Servico.ConsolidarMovimentacao(conta);
+                progresso.Report(resultadoConsolidacao);
+                return resultadoConsolidacao;
+            }));
+            return await Task.WhenAll(tasks);
+
+        }
+
+        private void AtualizarView(string[] result, TimeSpan elapsedTime)
         {
             var tempoDecorrido = $"{ elapsedTime.Seconds }.{ elapsedTime.Milliseconds} segundos!";
-            var mensagem = $"Processamento de {result.Count} clientes em {tempoDecorrido}";
+            var mensagem = $"Processamento de {result.Count()} clientes em {tempoDecorrido}";
 
             LstResultados.ItemsSource = result;
             TxtTempo.Text = mensagem;
+        }
+
+
+        private void LimparView()
+        {
+            LstResultados.ItemsSource = null;
+            PgsProgresso.Value = 0;
+            TxtTempo.Text = null;
         }
     }
 }
