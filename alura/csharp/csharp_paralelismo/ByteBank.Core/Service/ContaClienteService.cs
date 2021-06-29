@@ -3,19 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ByteBank.Core.Service
 {
     public class ContaClienteService
     {
+
         public string ConsolidarMovimentacao(ContaCliente conta)
+        {
+            return ConsolidarMovimentacao(conta, CancellationToken.None);
+        }
+        public string ConsolidarMovimentacao(ContaCliente conta, CancellationToken cancellationToken)
         {
             var soma = 0m;
 
-            foreach (var movimento in conta.Movimentacoes)
+            foreach (var movimento in conta.Movimentacoes) 
+            {
+                cancellationToken.ThrowIfCancellationRequested();
                 soma += movimento.Valor * FatorDeMultiplicacao(movimento.Data);
+            }
 
+            cancellationToken.ThrowIfCancellationRequested();
             AtualizarInvestimentos(conta);
             return $"Cliente {conta.NomeCliente} tem saldo atualizado de R${soma.ToString("#00.00")}";
         }
