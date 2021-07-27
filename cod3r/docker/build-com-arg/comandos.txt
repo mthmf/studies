@@ -1,0 +1,13 @@
+# Cria imagem
+docker image build -t ex-build-arg .
+
+# Lista 
+docker image ls
+
+# Cria container e mostra variavel
+docker container run ex-build-arg bash -c 'echo $S3_BUCKET'
+
+
+# Criando imagem com build-args
+docker imagem build --build-arg S3_BUCKET=myapp -t ex-build-arg . 
+

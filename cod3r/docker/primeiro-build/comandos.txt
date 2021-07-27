@@ -1,0 +1,8 @@
+# Cria imagem - pegando o Dockerfile do local
+docker image build -t ex-simple build . 
+
+# Lista imagem
+docker image ls
+
+# Sobe container com a imagem
+docker container run -p 8080:80 ex-simple-build
