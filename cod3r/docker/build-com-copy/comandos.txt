@@ -1,0 +1,5 @@
+# Cria a imagem
+docker image build -t ex-build-copy .
+
+# Executa container em cima da imagem 
+docker container run -p 8080:80 ex-build-copy
