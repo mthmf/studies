@@ -1,0 +1,45 @@
+# Cria a imagem
+docker image build -t ex-build-dev .
+
+# Roda o container 
+docker container run -it -v $(pwd):/app -p 8080:8000 --name python-server ex-build-dev
+
+# Pega os volumes do container 
+docker container run -it --volumes-from=python-server debian cat /log/http-server.log 
+
+
+
+# Redes
+
+# Criando 2 containers e verificando suas Redes
+
+docker container run -d --name container1 alpine sleep 1000
+docker container exec -it container1 ifconfig
+
+docker container run -d --name container2 alpine sleep 1000
+docker container exec -it container2 ifconfig
+
+# Tentando pingar uma rede de uma container para outro e retornando OK
+docker container exec -it container2 ping 172.17.0.2
+
+
+# Criando uma rede e inspecionando ela
+docker network create --driver bridge rede-nova
+docker network inspect rede-nova
+
+# Criando o terceiro container na nova rede e verificando sua rede
+
+docker container run -d --name container3 --net rede-nova alpine sleep 1000
+docker container exec -it container3 ifconfig
+
+# Tentando pingar o container3 de uma rede na outra rede dos outros containers.
+
+docker container exec -it container3 ping 172.17.0.2
+
+
+# Cria a conexão do terceiro container a rede padrão (bridge)
+docker network connect bridge container3
+
+# Tentando novamente o ping a outra rede e retornando sucesso.
+docker container exec -it container3 ping 172.17.0.2 
+

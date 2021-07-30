@@ -14,7 +14,7 @@ class MyHttpHandler(http.server.SimpleHTTPRequestHandler):
 logging.basicConfig(
     filename='/log/http-server.log',
     format='%(asctime)s - %(levelname)s - %(message)s',
-    level=logging.info
+    level=logging.INFO
 )
 
 logging.getLogger().addHandler(logging.StreamHandler())
