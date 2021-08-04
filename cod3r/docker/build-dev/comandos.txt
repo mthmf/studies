@@ -7,8 +7,6 @@ docker container run -it -v $(pwd):/app -p 8080:8000 --name python-server ex-bui
 # Pega os volumes do container 
 docker container run -it --volumes-from=python-server debian cat /log/http-server.log 
 
-
-
 # Redes
 
 # Criando 2 containers e verificando suas Redes
