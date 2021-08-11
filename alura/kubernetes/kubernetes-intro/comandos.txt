@@ -1,0 +1,12 @@
+# Criar imagem do serviço Web
+    docker build -t "aplicacao-loja:v1" .
+# Exec comando no banco 
+    docker exec -it kubernetes-intro_db_1 sh 
+
+    
+
+
+# Criar um pod no kubernetes
+    kubectl create -f aplicacao.yaml
+# Deletar um pod 
+    kubectl delete pods aplicacao-pod

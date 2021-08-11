@@ -1,0 +1,15 @@
+version: '3.0'
+services: 
+    db:
+        image: mysql
+        environment: 
+            - MYSQL_DATABASE=loja
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+        volumes: 
+            - ./volume_mysql:/var/lib/mysql
+    web:
+        image: aplicacao-loja:v1
+        ports: 
+            - 8080:80 
+        depends_on: 
+            - db
