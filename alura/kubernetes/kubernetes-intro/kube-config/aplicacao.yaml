@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: aplicacao-pod
+  name: aplicacao
 spec:
   containers:
     - name: container-aplicacao-loja

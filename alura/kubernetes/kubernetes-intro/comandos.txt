@@ -9,4 +9,7 @@
 # Criar um pod no kubernetes
     kubectl create -f aplicacao.yaml
 # Deletar um pod 
-    kubectl delete pods aplicacao-pod
+    kubectl delete pods aplicacao
+
+# Criar objeto deployment 
+    kubectl create -f deployment.yml
