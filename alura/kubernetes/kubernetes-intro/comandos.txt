@@ -2,10 +2,7 @@
     docker build -t "aplicacao-loja:v1" .
 # Exec comando no banco 
     docker exec -it kubernetes-intro_db_1 sh 
-
-    
-
-
+  
 # Criar um pod no kubernetes
     kubectl create -f aplicacao.yaml
 # Deletar um pod 
@@ -13,3 +10,8 @@
 
 # Criar objeto deployment 
     kubectl create -f deployment.yml
+
+# Mais infos do pod
+    kubectl describe pdos [name]
+
+    
