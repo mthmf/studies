@@ -1,0 +1,24 @@
+
+ - Forma imperativa
+
+# Criando um novo pod
+    kubectl run nginx-pod --image=nginx:latest
+
+# Informações sobre o pod
+    kubectl describe pod nginx-pod
+
+# Editando um pod 
+
+    kubectl edit pod nginx-pod
+
+ - Forma declarativa
+
+# Aplicando o pod depois de descreve-lo
+
+    kubectl apply -f primeiro-pod.yml
+
+
+
+# Removendo um pod 
+    kubectl delete pod nginx-pod
+
