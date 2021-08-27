@@ -11,13 +11,12 @@
 
     kubectl edit pod nginx-pod
 
- - Forma declarativa
+
+- Forma declarativa
 
 # Aplicando o pod depois de descreve-lo
 
     kubectl apply -f primeiro-pod.yml
-
-
 
 # Removendo um pod 
     kubectl delete pod nginx-pod
