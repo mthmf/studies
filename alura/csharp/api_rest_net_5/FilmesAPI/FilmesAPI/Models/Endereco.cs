@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace FilmesAPI.Models
 {
-    public class Filme
+    public class Endereco
     {
         [Key]
         [Required]
         public int Id { get; set; }
 
-        public string Titulo { get; set; }
-        
-        public string Diretor { get; set; }
+        public string Logradouro { get; set; }
 
-        public string Genero { get; set; }
-        
-        public int Duracao { get; set; }
+        public string Bairro { get; set; }
+
+        public int Numero{ get; set; }
+
+        public Cinema Cinema { get; set; }
 
     }
 }
