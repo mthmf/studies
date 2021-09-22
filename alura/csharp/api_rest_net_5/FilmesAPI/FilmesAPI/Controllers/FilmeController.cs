@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using FilmesAPI.Data;
 using FilmesAPI.Data.Dtos;
+using FilmesAPI.Data.Dtos.Gerentes;
 using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace FilmesAPI.Controllers
@@ -24,7 +24,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
+        public IActionResult AdicionaFilme([FromBody] CreateGerenteDto filmeDto)
         {
             Filme filme = _mapper.Map<Filme>(filmeDto);               
             _context.Filmes.Add(filme);
