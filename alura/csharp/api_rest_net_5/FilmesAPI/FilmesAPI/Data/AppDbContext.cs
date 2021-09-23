@@ -11,6 +11,9 @@ namespace FilmesAPI.Data
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Gerente> Gerentes{ get; set; }
 
+        public DbSet<Sessao> Sessoes { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -24,6 +27,16 @@ namespace FilmesAPI.Data
                 .WithMany(gerente => gerente.Cinemas)
                 .HasForeignKey(cinema => cinema.GerenteId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Sessao>()
+                .HasOne(sessao => sessao.Filme)
+                .WithMany(filme => filme.Sessoes)
+                .HasForeignKey(sessao => sessao.FilmeId);
+
+            builder.Entity<Sessao>()
+              .HasOne(sessao => sessao.Cinema)
+              .WithMany(cinema => cinema.Sessoes)
+              .HasForeignKey(sessao => sessao.CinemaId);
         }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base (options)

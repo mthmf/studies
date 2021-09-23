@@ -5,6 +5,7 @@ using FilmesAPI.Data.Dtos.Gerentes;
 using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FilmesAPI.Controllers
@@ -35,9 +36,22 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult RecuperarFilmes()
+        public IActionResult RecuperarFilmes([FromQuery] int? classificacao)
         {
-            return Ok(_context.Filmes);
+            List<Filme> filmes;
+            if(classificacao == null)
+                filmes = _context.Filmes.ToList();    
+            else
+                filmes = _context.Filmes
+                                .Where(filme => filme.Classificacao <= classificacao).ToList();
+
+            if (filmes.Any())
+            {
+                List<ReadCinemaDto> filmesDto = _mapper.Map<List<ReadCinemaDto>>(filmes);
+                return Ok(filmes);
+            }
+
+            return NotFound();
         }
 
         [HttpGet]
