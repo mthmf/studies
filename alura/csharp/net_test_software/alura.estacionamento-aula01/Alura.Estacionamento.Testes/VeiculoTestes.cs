@@ -1,10 +1,29 @@
 using Alura.Estacionamento.Modelos;
+using System;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Alura.Estacionamento.Testes
 {
-    public class VeiculoTestes
+    public class VeiculoTestes : IDisposable
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        private Veiculo veiculo { get; set; }
+
+        public VeiculoTestes(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+            testOutputHelper.WriteLine("Construtor invocado");
+
+            veiculo = new Veiculo();
+            veiculo.Proprietario = "Carlos";
+            veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
+            veiculo.Cor = "Preto";
+            veiculo.Modelo = "Kwid"; //Alterado
+            veiculo.Placa = "AQS-9900";
+        }
+
         [Fact(DisplayName ="Teste para validar aceleração")]
         [Trait("Funcionalidade", "Acelerar")]
         public void TestaVeiculoAcelerarComParametro10()
@@ -23,7 +42,7 @@ namespace Alura.Estacionamento.Testes
         public void TestaVeiculoFrearComParametro10()
         {
             //arrange
-            var veiculo = new Veiculo();
+            //var veiculo = new Veiculo();
             // act
             veiculo.Frear(10);
             // assert
@@ -40,12 +59,12 @@ namespace Alura.Estacionamento.Testes
         public void FichaDeInformacaoDoVeiculo()
         { 
             // arrange 
-            var veiculo = new Veiculo();
+         /*   var veiculo = new Veiculo();
             veiculo.Proprietario = "Carlos";
             veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
             veiculo.Cor = "Preto";
             veiculo.Modelo = "Kwid"; //Alterado
-            veiculo.Placa = "AQS-9900";
+            veiculo.Placa = "AQS-9900";*/
 
             //act 
             string dados = veiculo.ToString();
@@ -57,7 +76,10 @@ namespace Alura.Estacionamento.Testes
         
         }
 
+        public void Dispose()
+        {
+            _testOutputHelper.WriteLine("Dispose invocado");
 
-
-}
+        }
+    }
 }

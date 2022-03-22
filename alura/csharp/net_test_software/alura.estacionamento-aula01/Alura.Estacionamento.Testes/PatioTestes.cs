@@ -1,15 +1,27 @@
 ﻿using Alura.Estacionamento.Modelos;
+using System;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Alura.Estacionamento.Testes
 {
-    public class PatioTestes
+    public class PatioTestes : IDisposable
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+        private Patio Patio { get; set; }
+
+
+        public PatioTestes(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+            testOutputHelper.WriteLine("Construtor invocado");
+            Patio = new Patio();
+        }
+
         [Fact]
         public void ValidaFaturamentoComUmVeiculo()
         {
             // arrange
-            var patio = new Patio();
             var veiculo = new Veiculo();
             veiculo.Proprietario = "Pablo";
             veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
@@ -17,11 +29,11 @@ namespace Alura.Estacionamento.Testes
             veiculo.Modelo = "T-Cross";
             veiculo.Placa = "AQS-9900";
 
-            patio.RegistrarEntradaVeiculo(veiculo);
-            patio.RegistrarSaidaVeiculo(veiculo.Placa);
+            Patio.RegistrarEntradaVeiculo(veiculo);
+            Patio.RegistrarSaidaVeiculo(veiculo.Placa);
 
             // act 
-            double faturamento = patio.TotalFaturado();
+            double faturamento = Patio.TotalFaturado();
 
             // assert
             Assert.Equal(2, faturamento);
@@ -36,7 +48,6 @@ namespace Alura.Estacionamento.Testes
         public void ValidaFaturamentoComVariosVeiculos(string proprietario, string placa, string cor, string modelo)
         {
             // arrange
-            var patio = new Patio();
             var veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
@@ -44,11 +55,11 @@ namespace Alura.Estacionamento.Testes
             veiculo.Modelo = modelo;
             veiculo.Placa = placa;
 
-            patio.RegistrarEntradaVeiculo(veiculo);
-            patio.RegistrarSaidaVeiculo(veiculo.Placa);
+            Patio.RegistrarEntradaVeiculo(veiculo);
+            Patio.RegistrarSaidaVeiculo(veiculo.Placa);
 
             // act 
-            double faturamento = patio.TotalFaturado();
+            double faturamento = Patio.TotalFaturado();
 
             // assert
             Assert.Equal(2, faturamento);
@@ -60,17 +71,16 @@ namespace Alura.Estacionamento.Testes
         public void LocalizaVeiculoPatio(string proprietario, string placa, string cor, string modelo)
         {
             // arrange
-            var patio = new Patio();
             var veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
             veiculo.Cor = cor;
             veiculo.Modelo = modelo;
             veiculo.Placa = placa;
-            patio.RegistrarEntradaVeiculo(veiculo);
+            Patio.RegistrarEntradaVeiculo(veiculo);
 
             // act
-            var consultado = patio.PesquisaVeiculo(veiculo.Placa);
+            var consultado = Patio.PesquisaVeiculo(veiculo.Placa);
 
             // assert 
             Assert.Equal(placa, consultado.Placa);
@@ -81,14 +91,13 @@ namespace Alura.Estacionamento.Testes
         public void AlterarDadosDeUmVeiculo()
         {
             // arrange
-            var patio = new Patio();
             var veiculo = new Veiculo();
             veiculo.Proprietario = "Pablo";
             veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
             veiculo.Cor = "Azul";
             veiculo.Modelo = "T-Cross";
             veiculo.Placa = "AQS-9900";
-            patio.RegistrarEntradaVeiculo(veiculo);
+            Patio.RegistrarEntradaVeiculo(veiculo);
             
             
             var veiculoAlterado =  new Veiculo();
@@ -99,11 +108,17 @@ namespace Alura.Estacionamento.Testes
             veiculoAlterado.Placa = "AQS-9900";
 
             // act
-            var alterado = patio.AlterarDadosVeiculo(veiculoAlterado);
+            var alterado = Patio.AlterarDadosVeiculo(veiculoAlterado);
 
 
             // assert 
             Assert.Equal(alterado.Modelo, veiculoAlterado.Modelo);
+
+        }
+
+        public void Dispose()
+        {
+            _testOutputHelper.WriteLine("Dipose invocado");
 
         }
 
