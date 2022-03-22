@@ -49,7 +49,7 @@ namespace Alura.Estacionamento.Testes
             Assert.Equal(-150, veiculo.VelocidadeAtual);
         }
 
-        [Fact(DisplayName ="Teste para validar nome proprietario",Skip = "No implemented")]
+        [Fact(DisplayName ="Teste para validar nome proprietario", Skip = "No implemented")]
         public void ValidaNomeProprietarioDoVeiculo()
         {
 

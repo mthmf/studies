@@ -1,4 +1,5 @@
-﻿using Alura.Estacionamento.Modelos;
+﻿using Alura.Estacionamento.Alura.Estacionamento.Modelos;
+using Alura.Estacionamento.Modelos;
 using System;
 using Xunit;
 using Xunit.Abstractions;
@@ -16,6 +17,8 @@ namespace Alura.Estacionamento.Testes
             _testOutputHelper = testOutputHelper;
             testOutputHelper.WriteLine("Construtor invocado");
             Patio = new Patio();
+            Patio.Operador = new Operador() { Nome = "Marcos Junior" };
+
         }
 
         [Fact]
@@ -50,7 +53,7 @@ namespace Alura.Estacionamento.Testes
             // arrange
             var veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
-            veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
+            veiculo.Tipo = TipoVeiculo.Automovel;
             veiculo.Cor = cor;
             veiculo.Modelo = modelo;
             veiculo.Placa = placa;
@@ -73,17 +76,17 @@ namespace Alura.Estacionamento.Testes
             // arrange
             var veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
-            veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
+            veiculo.Tipo = TipoVeiculo.Automovel;
             veiculo.Cor = cor;
             veiculo.Modelo = modelo;
             veiculo.Placa = placa;
             Patio.RegistrarEntradaVeiculo(veiculo);
 
             // act
-            var consultado = Patio.PesquisaVeiculo(veiculo.Placa);
+            var consultado = Patio.PesquisaVeiculo(veiculo.IdTicket);
 
             // assert 
-            Assert.Equal(placa, consultado.Placa);
+            Assert.Contains("### Ticket Estacionametno Alura ###", consultado.Ticket);
 
         }
 
@@ -93,7 +96,7 @@ namespace Alura.Estacionamento.Testes
             // arrange
             var veiculo = new Veiculo();
             veiculo.Proprietario = "Pablo";
-            veiculo.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
+            veiculo.Tipo = TipoVeiculo.Automovel;
             veiculo.Cor = "Azul";
             veiculo.Modelo = "T-Cross";
             veiculo.Placa = "AQS-9900";
@@ -102,7 +105,7 @@ namespace Alura.Estacionamento.Testes
             
             var veiculoAlterado =  new Veiculo();
             veiculoAlterado.Proprietario = "Pablo";
-            veiculoAlterado.Tipo = Alura.Estacionamento.Modelos.TipoVeiculo.Automovel;
+            veiculoAlterado.Tipo = TipoVeiculo.Automovel;
             veiculoAlterado.Cor = "Azul";
             veiculoAlterado.Modelo = "Voyage"; //Alterado
             veiculoAlterado.Placa = "AQS-9900";
