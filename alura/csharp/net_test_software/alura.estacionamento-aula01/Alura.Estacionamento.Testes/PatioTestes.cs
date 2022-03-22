@@ -118,7 +118,7 @@ namespace Alura.Estacionamento.Testes
 
         public void Dispose()
         {
-            _testOutputHelper.WriteLine("Dipose invocado");
+            _testOutputHelper.WriteLine("Dispose invocado");
 
         }
 
