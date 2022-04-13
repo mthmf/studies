@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Moq" Version="4.17.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Alura.CoisasAFazer.Core\Alura.CoisasAFazer.Core.csproj" />
     <ProjectReference Include="..\Alura.CoisasAFazer.Infrastructure\Alura.CoisasAFazer.Infrastructure.csproj" />
   </ItemGroup>
