@@ -1,5 +1,4 @@
-﻿
-namespace CSharp10_News.C10_News;
+﻿namespace CSharp10_News.C10_News;
 
 public readonly record struct Projeto(string? Nome, int Versao, Linguagem? Linguagem);
 
