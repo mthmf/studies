@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
+
+const monitoramento = 3
+const delay = 5
 
 func main() {
 
@@ -54,25 +58,34 @@ func exibeMenu() {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando")
-	site := "https://www.alura.com.br"
 	// array
-	var sites [4]string
-	sites[0] = "https://www.alura.com.br"
-	sites[1] = "https://www.google.com.br"
-	sites[2] = "https://www.caulem.com.br"
+	sites := []string{
+		"https://www.alura.com.br",
+		"https://www.google.com.br",
+		"https://www.caelum.com.br",
+	}
 
-	fmt.Println(sites)
+	for i := 0; i < monitoramento; i++ {
+		for _, site := range sites {
+			testaSite(site)
+		}
+		time.Sleep(delay * time.Second)
+		fmt.Println("")
+	}
+	fmt.Println("")
 
+}
+
+func testaSite(site string) {
 	resp, _ := http.Get(site)
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, " carregado com sucesso")
 	} else {
 		fmt.Println("Site:", site, " está com problema. Status Code: ", resp.StatusCode)
 	}
-
 }
 
-func exibeNomes() {
+func exibeNomesSlice() {
 	nomes := []string{"Pedro", "Daniel", "Cristina"}
 	nomes = append(nomes, "Italo")
 	fmt.Println(nomes)
