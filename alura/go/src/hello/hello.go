@@ -2,6 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"strings"
+
+	//"io/ioutil"
+	"bufio"
 	"net/http"
 	"os"
 	"time"
@@ -58,12 +63,13 @@ func exibeMenu() {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando")
-	// array
-	sites := []string{
-		"https://www.alura.com.br",
-		"https://www.google.com.br",
-		"https://www.caelum.com.br",
-	}
+
+	//sites := []string{
+	//	"https://www.alura.com.br",
+	//	"https://www.google.com.br",
+	//	"https://www.caelum.com.br",
+	//}
+	sites := leSitesArquivo()
 
 	for i := 0; i < monitoramento; i++ {
 		for _, site := range sites {
@@ -77,7 +83,12 @@ func iniciarMonitoramento() {
 }
 
 func testaSite(site string) {
-	resp, _ := http.Get(site)
+	resp, error := http.Get(site)
+
+	if error != nil {
+		fmt.Println("Ocorreu um erro ", error)
+	}
+
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, " carregado com sucesso")
 	} else {
@@ -89,4 +100,28 @@ func exibeNomesSlice() {
 	nomes := []string{"Pedro", "Daniel", "Cristina"}
 	nomes = append(nomes, "Italo")
 	fmt.Println(nomes)
+}
+
+func leSitesArquivo() []string {
+
+	var sites []string
+	//arquivo, error := ioutil.ReadFile("sites.txt")
+	arquivo, error := os.Open("sites.txt")
+
+	if error != nil {
+		fmt.Println("Ocorreu um erro ", error)
+	}
+
+	var reader = bufio.NewReader(arquivo)
+	for {
+		linha, err := reader.ReadString('\n')
+		linha = strings.TrimSpace(linha)
+		sites = append(sites, linha)
+		if err == io.EOF {
+			break
+		}
+	}
+
+	arquivo.Close()
+	return sites
 }
