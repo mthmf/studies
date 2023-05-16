@@ -55,6 +55,14 @@ func exibeMenu() {
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando")
 	site := "https://www.alura.com.br"
+	// array
+	var sites [4]string
+	sites[0] = "https://www.alura.com.br"
+	sites[1] = "https://www.google.com.br"
+	sites[2] = "https://www.caulem.com.br"
+
+	fmt.Println(sites)
+
 	resp, _ := http.Get(site)
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, " carregado com sucesso")
@@ -62,4 +70,10 @@ func iniciarMonitoramento() {
 		fmt.Println("Site:", site, " está com problema. Status Code: ", resp.StatusCode)
 	}
 
+}
+
+func exibeNomes() {
+	nomes := []string{"Pedro", "Daniel", "Cristina"}
+	nomes = append(nomes, "Italo")
+	fmt.Println(nomes)
 }
