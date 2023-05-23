@@ -1,32 +1,32 @@
 package main
 
 import (
+	c "banco/contas"
 	"fmt"
 )
 
-type ContaCorrente struct {
-	titular       string
-	numeroAgencia int
-	numeroConta   int
-	saldo         float64
-}
-
 func main() {
-	conta1 := ContaCorrente{
-		titular:       "Roberto",
-		numeroAgencia: 12354,
-		numeroConta:   12344,
-		saldo:         12.63,
+	conta1 := c.ContaCorrente{
+		Titular:       "Roberto",
+		NumeroAgencia: 12354,
+		NumeroConta:   12344,
+		Saldo:         900.63,
 	}
 
-	conta2 := ContaCorrente{"Bruna", 54, 344, 121.63}
+	conta2 := c.ContaCorrente{
+		Titular:       "Gustavo",
+		NumeroAgencia: 12354,
+		NumeroConta:   12345,
+		Saldo:         950.63,
+	}
 
-	var conta3 *ContaCorrente
-	conta3 = new(ContaCorrente)
-	conta3.titular = "Jr"
+	valor := 200.
+	conta1.Sacar(valor)
+	conta1.Depositar(500.)
+	fmt.Println(conta1.Saldo)
 
-	fmt.Println(conta1)
+	status := conta1.Transferir(200, &conta2)
+	fmt.Println(status)
+
 	fmt.Println(conta2)
-	fmt.Println(conta3)
-
 }
