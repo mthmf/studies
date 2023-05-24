@@ -1,20 +1,22 @@
 package main
 
 import (
-	c "banco/contas"
+	"contas/src/banco/clientes"
+	c "contas/src/banco/contas"
 	"fmt"
 )
 
 func main() {
+	cliente := clientes.Titular{"Roberto", "152165", "Dev"}
 	conta1 := c.ContaCorrente{
-		Titular:       "Roberto",
+		Titular:       cliente,
 		NumeroAgencia: 12354,
 		NumeroConta:   12344,
 		Saldo:         900.63,
 	}
 
 	conta2 := c.ContaCorrente{
-		Titular:       "Gustavo",
+		Titular:       cliente,
 		NumeroAgencia: 12354,
 		NumeroConta:   12345,
 		Saldo:         950.63,
