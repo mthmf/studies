@@ -30,6 +30,7 @@ func (c *ContaCorrente) Depositar(valorDeposito float64) (string, float64) {
 		return "Valor incorreto, informe valor válido.", c.saldo
 	}
 }
+
 func (c *ContaCorrente) Transferir(valorTransferencia float64, contaDestino *ContaCorrente) bool {
 	if valorTransferencia < c.saldo && valorTransferencia > 0 {
 		c.saldo -= valorTransferencia
