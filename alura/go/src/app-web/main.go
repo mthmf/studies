@@ -3,14 +3,11 @@ package main
 import (
 	"html/template"
 	"net/http"
-)
 
-type Produto struct {
-	Nome       string
-	Descricao  string
-	Preco      float64
-	Quantidade int
-}
+	"contas/src/app-web/models"
+
+	_ "github.com/lib/pq"
+)
 
 var temp = template.Must(template.ParseGlob("templates/*html"))
 
@@ -20,10 +17,7 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	produtos := []Produto{
-		{Nome: "Camisa", Descricao: "Preta", Preco: 69.6, Quantidade: 4},
-		{"Tenis", "Vermelho", 156.9, 10},
-		{"Casaco", "Preto", 229, 5},
-	}
+	produtos := models.GetAll()
 	temp.ExecuteTemplate(w, "Index", produtos)
+
 }
