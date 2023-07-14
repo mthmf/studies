@@ -1,0 +1,15 @@
+info:
+  contact: {}
+paths:
+  /alunos/{id}:
+    delete:
+      description: Realiza a remoção de um aluno do banco de dados
+      parameters:
+      - description: Id do aluno
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: Deleta o aluno
+swagger: "2.0"

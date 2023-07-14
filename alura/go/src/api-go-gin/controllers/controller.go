@@ -58,6 +58,12 @@ func BuscaAlunoPorCPF(c *gin.Context) {
 	c.JSON(http.StatusOK, aluno)
 }
 
+// DeletaAluno godoc
+// @Summary Deleta o aluno
+// @Description Realiza a remoção de um aluno do banco de dados
+// @Param id path int true "Id do aluno"
+// @Sucess 200
+// @Router /alunos/{id} [delete]
 func DeletaAluno(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var aluno models.Aluno

@@ -1,0 +1,24 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/alunos/{id}": {
+            "delete": {
+                "description": "Realiza a remoção de um aluno do banco de dados",
+                "summary": "Deleta o aluno",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id do aluno",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
+}

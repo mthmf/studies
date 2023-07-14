@@ -7,6 +7,7 @@ import (
 
 func main() {
 	database.ConectaBanco()
+
 	/*models.Alunos = []models.Aluno{
 		{Nome: "Maria", CPF: "00000000000", RG: "846986546"},
 	}*/
