@@ -16,7 +16,7 @@ type storie int
 
 var newstr storie
 
-var newstr2 int
+var newstr2 uint
 
 func main() {
 	// exercicio 1
