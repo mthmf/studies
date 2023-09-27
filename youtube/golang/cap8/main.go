@@ -63,4 +63,30 @@ func main() {
 	novoSlice = append(novoSlice, 9)
 	fmt.Println(novoSlice, len(novoSlice), cap(novoSlice)) // cap 16
 
+	// multi/matriz
+	ss := [][]int{
+		[]int{1, 2, 3},
+		[]int{4, 5, 6},
+		[]int{7, 8, 9},
+	}
+	fmt.Println(ss)
+
+	// maps
+	people := map[string]int{
+		"carlos": 1325864,
+		"pedro":  12333,
+		"ana":    1123,
+	}
+	// adicionando info
+	people["tatiana"] = 123
+
+	// deletar
+	delete(people, "carlos")
+
+	for k, v := range people {
+		fmt.Println(k, v)
+	}
+	
+	fmt.Println(people)
+
 }
