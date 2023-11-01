@@ -37,8 +37,17 @@ func main() {
 		salario: 10000,
 	}
 
+	x := struct {
+		nome  string
+		idade int
+	}{
+		"Mario", 60,
+	}
+
+
 	fmt.Println(cliente1)
 	fmt.Println(pessoa1)
 	fmt.Println(profi)
+	fmt.Println(x)
 
 }
